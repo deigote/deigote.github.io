@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>2 Usage 0.1</title>
+    <title>3 Usage 0.1</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -27,7 +27,10 @@ function addJsClass() {
                     <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
                     </div>
                     
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/usage.html"><strong>2</strong><span>Usage</span></a>
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/usage.html"><strong>3</strong><span>Usage</span></a>
                     </div>
                     
                 </div>
@@ -43,8 +46,7 @@ function addJsClass() {
         
         
     </div>
-    <p>This plugin provides an annotation to create the autotimestamping properties using a configurable, joda-time compatible AST transform.
-</p>
+    <p>Provides an annotation to create the autotimestamping properties using a configurable, joda-time compatible AST transform.</p>
 </div>
 
 
@@ -54,7 +56,7 @@ function addJsClass() {
             <div id="main" class="corner-all">
 
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
                 
 
                 <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
@@ -63,7 +65,7 @@ function addJsClass() {
 
 
                 <div class="project">
-                    <h1>2 Usage - Reference Documentation</h1>
+                    <h1>3 Usage - Reference Documentation</h1>
 
                     <p><strong>Authors:</strong> Diego Toharia</p>
 
@@ -76,7 +78,7 @@ function addJsClass() {
 
                 
 
-<h1 id="usage">2 Usage</h1>
+<h1 id="usage">3 Usage</h1>
 <h2>Basic usage</h2><p class="paragraph"/>Using the plugin is fairly simple. You just need to annotate the domain classes as Timestamped and the  <em class="italic">dateCreated</em>  and  <em class="italic">lastUpdated</em>  properties will be injected at compile time:<p class="paragraph"/><div class="code"><pre><span class="java&#45;keyword">package</span> my.awesome.grails.app<p class="paragraph"/><span class="java&#45;keyword">import</span> com.tado.timestamped.transform.Timestamped<p class="paragraph"/>@Timestamped
 class Car &#123;
    Brand brand
@@ -114,7 +116,7 @@ not found, it will try to use one of the supported ones. The priority is then:
 
                 <div style="clear:both;margin-top:15px;"></div>
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
                 
                 <div style="clear:both"></div>
             </div>

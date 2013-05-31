@@ -25,7 +25,9 @@ function addJsClass(el) {
                             
                             <div class="toc-item" style="margin-left:0"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
                             
-                            <div class="toc-item" style="margin-left:0"><a href="#usage"><strong>2</strong><span>Usage</span></a></div>
+                            <div class="toc-item" style="margin-left:0"><a href="#installation"><strong>2</strong><span>Installation</span></a></div>
+                            
+                            <div class="toc-item" style="margin-left:0"><a href="#usage"><strong>3</strong><span>Usage</span></a></div>
                             
                         </div>
                     </div>
@@ -40,8 +42,7 @@ function addJsClass(el) {
                 
                 
             </div>
-            <p>This plugin provides an annotation to create the autotimestamping properties using a configurable, joda-time compatible AST transform.
-</p>
+            <p>Provides an annotation to create the autotimestamping properties using a configurable, joda-time compatible AST transform.</p>
         </div>
 
 
@@ -65,7 +66,9 @@ function addJsClass(el) {
                             
                             <div class="toc-item" style="margin-left:0px"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
                             
-                            <div class="toc-item" style="margin-left:0px"><a href="#usage"><strong>2</strong><span>Usage</span></a></div>
+                            <div class="toc-item" style="margin-left:0px"><a href="#installation"><strong>2</strong><span>Installation</span></a></div>
+                            
+                            <div class="toc-item" style="margin-left:0px"><a href="#usage"><strong>3</strong><span>Usage</span></a></div>
                             
                             <div style="clear:both" ></div>
                         </div>
@@ -84,7 +87,17 @@ so this two problems are mitigated. Also, Timestamped supports the <a href="http
 so it will react to the plugin being installed or not by creating the timestamped properties in the proper class<p class="paragraph"/>You can check the classes provided by the plugin in the <a href="http://deigote.github.io/grails-timestamped/gapi/" target="blank">Groovy API section</a>.
 
 
-<h1 id="usage">2 Usage</h1>
+<h1 id="installation">2 Installation</h1>
+You can add the plugin to your project as a dependency by editing your project's  <em class="italic">BuildConfig.groovy</em> 
+as the following:<p class="paragraph"/><div class="code"><pre>dependencies &#123;
+   // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+   &#8230;
+   compile 'org.grails.plugins:timestamped:0.1'
+&#125;</pre></div>
+
+
+
+<h1 id="usage">3 Usage</h1>
 <h2>Basic usage</h2><p class="paragraph"/>Using the plugin is fairly simple. You just need to annotate the domain classes as Timestamped and the  <em class="italic">dateCreated</em>  and  <em class="italic">lastUpdated</em>  properties will be injected at compile time:<p class="paragraph"/><div class="code"><pre><span class="java&#45;keyword">package</span> my.awesome.grails.app<p class="paragraph"/><span class="java&#45;keyword">import</span> com.tado.timestamped.transform.Timestamped<p class="paragraph"/>@Timestamped
 class Car &#123;
    Brand brand
