@@ -88,12 +88,26 @@ so it will react to the plugin being installed or not by creating the timestampe
 
 
 <h1 id="installation">2 Installation</h1>
-You can add the plugin to your project as a dependency by editing your project's  <em class="italic">BuildConfig.groovy</em> 
+<h2>Install as a plugin</h2><p class="paragraph"/>You can add the plugin to your project as a dependency by editing your project's  <em class="italic">BuildConfig.groovy</em> 
 as the following:<p class="paragraph"/><div class="code"><pre>plugins &#123;
-   // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-   &#8230;
-   compile 'timestamped:0.3'
-&#125;</pre></div>
+       // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+       &#8230;
+       compile 'timestamped:0.3'
+    &#125;</pre></div><p class="paragraph"/><h2>Install as a maven dependency</h2><p class="paragraph"/>You can add the plugin as a precompiled maven dependency by editing your project's  <em class="italic">BuildConfig.groovy</em> 
+as the following:<p class="paragraph"/><div class="code"><pre>repositories &#123;
+       &#8230;
+       mavenRepo 'http://deigote.github.io/grails&#45;timestamped/maven/releases/'
+       grailsPlugins()
+    &#125;
+    &#8230;
+    dependencies &#123;
+        &#8230;
+        compile 'com.deigote.com:timestamped:0.3'
+    &#125;</pre></div><p class="paragraph"/>Please note that the maven repo declaration must be above the grails plugins one.<p class="paragraph"/>Also, keep in mind that if you want to use timestamped insied another plugin, you will need to install it as a maven dependency.
+That way, the plugin will be precompiled and the AST transform will be applied to the plugins as well. Bear in mind that
+an AST transform must be compiled before compiling the project where its being applied. Grails first compiles the plugins
+and then the project, so if you add the dependency as a plugin, the AST will be compiled at plugin compilation time, so will 
+only be available for the project but not for other plugins.
 
 
 
