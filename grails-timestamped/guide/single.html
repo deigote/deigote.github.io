@@ -102,7 +102,7 @@ as the following:<p class="paragraph"/><div class="code"><pre>repositories &#123
     &#8230;
     dependencies &#123;
         &#8230;
-        compile 'com.deigote.com:timestamped:0.3'
+        compile 'com.deigote.grails&#45;plugins:timestamped:0.3'
     &#125;</pre></div><p class="paragraph"/>Please note that the maven repo declaration must be above the grails plugins one.<p class="paragraph"/>Also, keep in mind that if you want to use timestamped insied another plugin, you will need to install it as a maven dependency.
 That way, the plugin will be precompiled and the AST transform will be applied to the plugins as well. Bear in mind that
 an AST transform must be compiled before compiling the project where its being applied. Grails first compiles the plugins
