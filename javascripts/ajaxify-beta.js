@@ -56,7 +56,7 @@ function ajaxifyLink(linkPath, updatePath, urlAttr, event, requestType, params, 
 			jQuery.ajax({
 				type: requestType,
 				url: jQuery(this).attr(urlAttr),
-				data: (params == "" && requestType == "POST" && event == "submit") ? jQuery(this).serialize() : params,
+				data: (params == "" && event == "submit") ? jQuery(this).serialize() : params,
 				beforeSend: beforeSendCallback, 
 				complete: completeCallback,
 				success: successCallback,
@@ -66,3 +66,17 @@ function ajaxifyLink(linkPath, updatePath, urlAttr, event, requestType, params, 
 	});
 }
 
+function ajaxifyLinkWithOpts(optsAsocArray) {
+	ajaxifyLink(
+		optsAsocArray.linkPath,
+		optsAsocArray.updatePath,
+		optsAsocArray.urlAttr,
+		optsAsocArray.event,
+		optsAsocArray.requestType,
+		optsAsocArray.params,
+		optsAsocArray.beforeSendCallback,
+		optsAsocArray.completeCallback,
+		optsAsocArray.successCallback,
+		optsAsocArray.errorCallback
+	);
+}
