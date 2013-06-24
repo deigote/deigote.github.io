@@ -60,17 +60,16 @@ function ajaxifyLink(linkPath, updatePath, urlAttr, event, requestType, params, 
 	errorCallback = errorCallback || function (xhr, status, error) { return true; };
 
 	// Ajaxify the link or the form
-	jQuery(linkPath).bind(event, 
-		function() {
-			ajaxifyLinkCurrentRequest = jQuery.ajax({
-				type: requestType,
-				url: jQuery(this).attr(urlAttr),
-				data: (params == "" && event == "submit") ? jQuery(this).serialize() : params,
-				beforeSend: beforeSendCallback, 
-				complete: completeCallback,
-				success: successCallback,
-				error: errorCallback
-			});
+	jQuery(linkPath).bind(event, function() {
+		ajaxifyLinkCurrentRequest = jQuery.ajax({
+			type: requestType,
+			url: jQuery(this).attr(urlAttr),
+			data: (params == "" && event == "submit") ? jQuery(this).serialize() : params,
+			beforeSend: beforeSendCallback, 
+			complete: completeCallback,
+			success: successCallback,
+			error: errorCallback
+		});
 		return false;
 	});
 }
