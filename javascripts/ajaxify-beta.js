@@ -39,19 +39,28 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.txt>.
  */
 
-function ajaxifyLink(linkPath, updatePath, urlAttr, event, requestType, params, beforeSendCallback, completeCallback, successCallback, errorCallback) {
+var ajaxifyLinkCurrentRequest;
+
+function ajaxifyLink(linkPath, updatePath, urlAttr, event, requestType, params, beforeSendCallback, completeCallback, 
+		successCallback, errorCallback, abortCurrentOnBefore) {
 	// Default values
 	urlAttr = urlAttr || "href";
 	event = event || "click";
 	params = params || "";
 	requestType = requestType || "GET";
-	beforeSendCallback = beforeSendCallback || function (request) { jQuery("#loading").slideDown("fast"); };
+	abortCurrentOnBefore = abortCurrentOnBefore || false;
+	beforeSendCallback = beforeSendCallback || function (request) { 
+		if (abortCurrentOnBefore && ajaxifyLinkCurrentRequest && ajaxifyLinkCurrentRequest.readyState != 4) {
+			ajaxifyLinkCurrentRequest.abort();
+		}
+		jQuery("#loading").slideDown("fast"); 
+	};
 	completeCallback = completeCallback || function (xhr, status) { jQuery("#loading").slideUp("fast"); };
 	successCallback = successCallback || function (data, status) { jQuery(updatePath).html(data); };
 	errorCallback = errorCallback || function (xhr, status, error) { return true; };
 
 	// Ajaxify the link or the form
-	jQuery(linkPath).bind(event, 
+	ajaxifyLinkCurrentRequest = jQuery(linkPath).bind(event, 
 		function() {
 			jQuery.ajax({
 				type: requestType,
@@ -77,6 +86,7 @@ function ajaxifyLinkWithOpts(optsAsocArray) {
 		optsAsocArray.beforeSendCallback,
 		optsAsocArray.completeCallback,
 		optsAsocArray.successCallback,
-		optsAsocArray.errorCallback
+		optsAsocArray.errorCallback,
+		optsAsocArray.abortCurrentOnBefore
 	);
 }
